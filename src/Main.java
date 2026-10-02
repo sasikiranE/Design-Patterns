@@ -1,12 +1,15 @@
-import creational.factory.ExportService;
-import creational.singleton.Logger;
+import creational.prototype.Enemy;
+import creational.prototype.Vampire;
+import creational.prototype.Zombie;
 
 public class Main {
     public static void main(String[] args) {
-        Logger logger1 = Logger.getInstance();
-        Logger logger2 = Logger.getInstance();
-        System.out.println(logger1);
-        System.out.println(logger2);
-        System.out.println(logger1 == logger2);
+        Enemy vampirePrototype = new Vampire(100, 20);
+        Enemy zombiePrototype = new Zombie(150, 10);
+
+        Enemy enemy1 = vampirePrototype.copy();
+        Enemy enemy2 = vampirePrototype.copy();
+        Enemy enemy3 = zombiePrototype.copy();
+        Enemy enemy4 = zombiePrototype.copy();
     }
 }
