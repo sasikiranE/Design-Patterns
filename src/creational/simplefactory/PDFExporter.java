@@ -1,4 +1,4 @@
-package creational.factory;
+package creational.simplefactory;
 
 public class PDFExporter implements FileExporter {
     public void export(String message) {

@@ -1,4 +1,4 @@
-package creational.factory;
+package creational.simplefactory;
 
 public class XLSXExporter implements FileExporter {
     public void export(String message) {

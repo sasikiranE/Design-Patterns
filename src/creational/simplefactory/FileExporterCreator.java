@@ -1,4 +1,4 @@
-package creational.factory;
+package creational.simplefactory;
 
 public class FileExporterCreator {
     public static FileExporter create(String type) {
