@@ -1,14 +1,16 @@
-import behavioral.state.TrafficLight;
+import behavioral.iterator.Iterator;
+import behavioral.iterator.Playlist;
+import behavioral.iterator.Song;
 
 public class Main {
     public static void main(String[] args) {
-        TrafficLight trafficLight = new TrafficLight();
-        trafficLight.render();
-        trafficLight.next();
-        trafficLight.render();
-        trafficLight.next();
-        trafficLight.render();
-        trafficLight.next();
-        trafficLight.render();
+        Playlist playlist = new Playlist();
+        playlist.add(new Song("abc", "efg", 150));
+        playlist.add(new Song("dude", "sai", 320));
+
+        Iterator<Song> iterator = playlist.createIterator();
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
+        }
     }
 }
