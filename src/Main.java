@@ -1,12 +1,16 @@
-import behavioral.templatemethod.CsvDataImporter;
-import behavioral.templatemethod.DataImporter;
-import behavioral.templatemethod.JsonDataImporter;
+import behavioral.command.AddProductCommand;
+import behavioral.command.Button;
+import behavioral.command.ProductService;
+
+import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
-        DataImporter jsonDataImporter = new JsonDataImporter();
-        jsonDataImporter.importFile("json file path");
-        DataImporter csvDataImporter = new CsvDataImporter();
-        csvDataImporter.importFile("csv file path");
+        ProductService productService = new ProductService(new ArrayList<>(0));
+        AddProductCommand addProductCommand = new AddProductCommand(productService);
+        Button btn = new Button(addProductCommand);
+        btn.click();
+        btn.click();
+        System.out.println(productService.getProducts());
     }
 }
