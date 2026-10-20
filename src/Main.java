@@ -1,16 +1,11 @@
-import behavioral.command.AddProductCommand;
-import behavioral.command.Button;
-import behavioral.command.ProductService;
+import behavioral.observer.LineCounter;
+import behavioral.observer.TextEditor;
 
-import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
-        ProductService productService = new ProductService(new ArrayList<>(0));
-        AddProductCommand addProductCommand = new AddProductCommand(productService);
-        Button btn = new Button(addProductCommand);
-        btn.click();
-        btn.click();
-        System.out.println(productService.getProducts());
+        TextEditor textEditor = new TextEditor("text content");
+        textEditor.addObserver(new LineCounter());
+        textEditor.setContent("This is the observer pattern");
     }
 }
